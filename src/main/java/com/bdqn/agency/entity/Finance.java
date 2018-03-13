@@ -1,5 +1,7 @@
 package com.bdqn.agency.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
 
 /**
@@ -21,6 +23,7 @@ public class Finance {
     private int money;
     private double balance;
     private String remark;
+    @JSONField(format = "yyyy-MM-dd HH-mm-ss")
     private Date createDate;
     private Type type;
     private int typeid;

@@ -1,10 +1,14 @@
 package com.bdqn.agency.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.bdqn.agency.entity.Finance;
 import com.bdqn.agency.services.FinanceService;
+import com.bdqn.agency.util.PageUtil;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -18,10 +22,15 @@ public class FinanceController {
     private FinanceService financeService;
 
     //跳转finance list页面
-    @RequestMapping(value = "ToFinance", method = RequestMethod.GET, produces = {"application/json;charset=utf-8"})
-    public String queryAll(Integer page, Integer rows, Model model) {
-       /* PageInfo<Finance> pageInfo = financeService.queryAll(page, rows);
-        model.addAttribute("pageInfo", pageInfo);*/
+    @RequestMapping("toFinance")
+    public String toFinance() {
         return "finance/finance";
+    }
+    @ResponseBody
+    @RequestMapping(value = "queryFinance", method = RequestMethod.GET, produces = {"application/json;charset=utf-8"})
+    public String queryAll(Integer page, Integer rows) {
+        PageInfo<Finance> pageInfo = financeService.queryAll(page, rows);
+        PageUtil<Finance> pageUtil = new PageUtil<>(pageInfo);
+        return JSON.toJSONString(pageUtil);
     }
 }

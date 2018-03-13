@@ -9,8 +9,9 @@
 <html>
   <head>
     <title>$Title$</title>
+    <%@include file="easyuiBasic.jsp"%>
   </head>
   <body>
-  <a href="${pageContext.request.contextPath}/finance/ToFinance">跳转Finance</a>
+  <a href="${pageContext.request.contextPath}/finance/toFinance">跳转Finance</a>
   </body>
 </html>

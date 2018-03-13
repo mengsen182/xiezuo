@@ -12,6 +12,9 @@
         <id property="id" column="id"/>
         <result property="createDate" column="createdate"/>
         <result property="typeid" column="typeid"/>
+        <result property="money" column="money"/>
+        <result property="balance" column="balance"/>
+        <result property="remark" column="remark"/>
         <association property="type" resultMap="typeMap"/>
     </resultMap>
     <!--查看全部Finance Sql语句-->
