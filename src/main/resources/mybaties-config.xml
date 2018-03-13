@@ -8,7 +8,7 @@
         <setting name="logImpl" value="LOG4J"></setting>
     </settings>
     <typeAliases>
-        <package name="cn.bdqn.entity"></package>
+        <package name="com.bdqn.agency.entity"></package>
     </typeAliases>
 
     <!-- Continue going here -->

@@ -17,7 +17,7 @@ public class Finance {
      createdatedate NOT NULL
      */
     private int id;
-    private String type;
+    private int  typeid;
     private int money;
     private double balance;
     private String remark;
@@ -27,7 +27,7 @@ public class Finance {
     public String toString() {
         return "Finance{" +
                 "id=" + id +
-                ", type='" + type + '\'' +
+                ", typeid=" + typeid +
                 ", money=" + money +
                 ", balance=" + balance +
                 ", remark='" + remark + '\'' +
@@ -43,12 +43,12 @@ public class Finance {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public int getTypeid() {
+        return typeid;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTypeid(int typeid) {
+        this.typeid = typeid;
     }
 
     public int getMoney() {
