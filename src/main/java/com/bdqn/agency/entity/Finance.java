@@ -17,21 +17,24 @@ public class Finance {
      createdatedate NOT NULL
      */
     private int id;
-    private int  typeid;
+
     private int money;
     private double balance;
     private String remark;
     private Date createDate;
+    private Type type;
+    private int typeid;
 
     @Override
     public String toString() {
         return "Finance{" +
                 "id=" + id +
-                ", typeid=" + typeid +
                 ", money=" + money +
                 ", balance=" + balance +
                 ", remark='" + remark + '\'' +
                 ", createDate=" + createDate +
+                ", type=" + type +
+                ", typeid=" + typeid +
                 '}';
     }
 
@@ -41,14 +44,6 @@ public class Finance {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getTypeid() {
-        return typeid;
-    }
-
-    public void setTypeid(int typeid) {
-        this.typeid = typeid;
     }
 
     public int getMoney() {
@@ -81,5 +76,21 @@ public class Finance {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public int getTypeid() {
+        return typeid;
+    }
+
+    public void setTypeid(int typeid) {
+        this.typeid = typeid;
     }
 }

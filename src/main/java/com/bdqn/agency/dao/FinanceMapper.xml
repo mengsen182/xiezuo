@@ -6,16 +6,18 @@
 <mapper namespace="com.bdqn.agency.dao.FinanceMapper">
     <resultMap id="typeMap" type="Type">
         <id property="typeid" column="typeid"/>
-        <result property="type" column="type"/>
+        <result property="typeName" column="typeName"/>
     </resultMap>
     <resultMap id="financeMap" type="Finance">
         <id property="id" column="id"/>
         <result property="createDate" column="createdate"/>
-        <result property="typeid" column="t_id"/>
-        <association property="Type" resultMap="typeMap"/>
+        <result property="typeid" column="typeid"/>
+        <association property="type" resultMap="typeMap"/>
     </resultMap>
 
-
+    <select id="queryAll" resultMap="financeMap" >
+        select * from finance f ,type t where f.typeid=t.typeid order by f.id desc
+    </select>
 
 
 </mapper>

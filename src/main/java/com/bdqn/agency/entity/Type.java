@@ -5,13 +5,13 @@ package com.bdqn.agency.entity;
  */
 public class Type {
     private int typeid;
-    private String type;
+    private String typeName;
 
     @Override
     public String toString() {
         return "Type{" +
                 "typeid=" + typeid +
-                ", type='" + type + '\'' +
+                ", typeName='" + typeName + '\'' +
                 '}';
     }
 
@@ -23,11 +23,11 @@ public class Type {
         this.typeid = typeid;
     }
 
-    public String getType() {
-        return type;
+    public String getTypeName() {
+        return typeName;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 }
