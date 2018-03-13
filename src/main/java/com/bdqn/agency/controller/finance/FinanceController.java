@@ -1,8 +1,8 @@
-package com.bdqn.agency.controller;
+package com.bdqn.agency.controller.finance;
 
 import com.alibaba.fastjson.JSON;
 import com.bdqn.agency.entity.Finance;
-import com.bdqn.agency.services.FinanceService;
+import com.bdqn.agency.services.finance.FinanceService;
 import com.bdqn.agency.util.PageUtil;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;

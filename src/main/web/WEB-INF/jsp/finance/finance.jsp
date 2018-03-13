@@ -25,7 +25,9 @@
                     }}],
                 columns:[[
                     {field:'ck',checkbox:true},
-                    {field:'',title:'财务类型',width:200},
+                    {field:'type',title:'财务类型',width:150,formatter:function (value,row,index) {
+                        return row.type.typeName;
+                    }},
                     {field:'money',title:'账务资金',width:120},
                     {field:'balance',title:'账户余额',width:120},
                     {field:'remark',title:'备注信息',width:500},

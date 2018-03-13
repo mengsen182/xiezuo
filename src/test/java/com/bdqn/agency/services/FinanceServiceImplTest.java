@@ -1,6 +1,7 @@
 package com.bdqn.agency.services;
 
 import com.bdqn.agency.entity.Finance;
+import com.bdqn.agency.services.finance.FinanceService;
 import com.github.pagehelper.PageInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;

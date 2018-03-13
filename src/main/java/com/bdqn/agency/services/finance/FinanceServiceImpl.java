@@ -1,6 +1,6 @@
-package com.bdqn.agency.services;
+package com.bdqn.agency.services.finance;
 
-import com.bdqn.agency.dao.FinanceMapper;
+import com.bdqn.agency.dao.finance.FinanceMapper;
 import com.bdqn.agency.entity.Finance;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;

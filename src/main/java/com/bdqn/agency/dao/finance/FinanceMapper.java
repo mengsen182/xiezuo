@@ -1,4 +1,4 @@
-package com.bdqn.agency.dao;
+package com.bdqn.agency.dao.finance;
 
 import com.bdqn.agency.entity.Finance;
 

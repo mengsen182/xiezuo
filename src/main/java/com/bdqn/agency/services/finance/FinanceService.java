@@ -1,4 +1,4 @@
-package com.bdqn.agency.services;
+package com.bdqn.agency.services.finance;
 
 import com.bdqn.agency.entity.Finance;
 import com.github.pagehelper.PageInfo;
