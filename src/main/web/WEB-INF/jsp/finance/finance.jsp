@@ -41,6 +41,9 @@
 
             })
         })
+        function addFinanceWindow() {
+            $("#addFinanceWindow").window("open");
+        }
         function updateFinance(id) {
             alert("修改" + id);
         }
@@ -51,5 +54,23 @@
 </head>
 <body>
     <table id="financeHg"></table>
+    <div class="easyui-windows" id="addFinanceWindow" style="top: 10%;left: 20%;width: 400px;height: 350px;padding: 40px 80px;">
+        <div>
+            财务类型:<input id="addFinanceTypeidCombobox" class="easyui-combobox">
+        </div>
+        <div>
+            财务资金:<input id="addFinanceMoney" class="easyui-textbox"/>
+        </div>
+        <div>
+            账户余额:<input id="addFinanceBalance" class="easyui-textbox"/>
+        </div>
+        <div>
+            备注信息:<input id="addFinanceRemark" class="easyui-textbox"/>
+        </div>
+            <div>
+                <button id="saveAddFinanceButton" class="easyui-linkbutton" iconCls="icon-save">保存</button>
+            </div>
+    </div>
+
 </body>
 </html>

@@ -25,4 +25,9 @@ public class FinanceServiceImpl implements FinanceService {
         PageInfo<Finance> pageInfo = new PageInfo<>(list);
         return pageInfo;
     }
+
+    @Override
+    public int addFinance(Finance finance) {
+        return financeMapper.addFinance(finance);
+    }
 }

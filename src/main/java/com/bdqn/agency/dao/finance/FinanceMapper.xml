@@ -21,6 +21,8 @@
     <select id="queryAll" resultMap="financeMap" >
         select * from finance f ,type t where f.typeid=t.typeid order by f.id desc
     </select>
-
+    <insert id="addFinance" parameterType="Finance">
+  INSERT INTO finance VALUES(NULL,#{money},#{balance},#{remark},NOW(),#{typeid})
+    </insert>
 
 </mapper>

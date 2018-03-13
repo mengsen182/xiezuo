@@ -33,4 +33,10 @@ public class FinanceController {
         PageUtil<Finance> pageUtil = new PageUtil<>(pageInfo);
         return JSON.toJSONString(pageUtil);
     }
+
+    @ResponseBody
+    @RequestMapping(value = "addFinance", method = RequestMethod.POST, produces = {"application/json;charset=utf-8"})
+    public String addFinance(Finance finance) {
+        return JSON.toJSONString(financeService.addFinance(finance));
+    }
 }

@@ -9,4 +9,6 @@ import com.github.pagehelper.PageInfo;
 public interface FinanceService {
     //查看全部Finance
     PageInfo<Finance> queryAll(int pageNum,int pageSize);
+    public int addFinance(Finance finance);
+
 }

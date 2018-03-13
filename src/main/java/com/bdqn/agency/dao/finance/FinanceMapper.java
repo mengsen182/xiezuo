@@ -10,4 +10,7 @@ import java.util.List;
 public interface FinanceMapper {
     //查看全部Finance
     List<Finance> queryAll();
+
+    //添加
+    public int addFinance(Finance finance);
 }
