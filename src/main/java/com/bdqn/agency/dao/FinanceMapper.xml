@@ -14,7 +14,7 @@
         <result property="typeid" column="typeid"/>
         <association property="type" resultMap="typeMap"/>
     </resultMap>
-
+    <!--查看全部Finance Sql语句-->
     <select id="queryAll" resultMap="financeMap" >
         select * from finance f ,type t where f.typeid=t.typeid order by f.id desc
     </select>

@@ -14,8 +14,10 @@ import java.util.List;
  */
 @Service
 public class FinanceServiceImpl implements FinanceService {
+    //mapper 注入
     @Resource
     private FinanceMapper financeMapper;
+    //查看全部Finance
     @Override
     public PageInfo<Finance> queryAll(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);

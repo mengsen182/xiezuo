@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <a href="${pageContext.request.contextPath}/finance/ToFinance">跳转Finance</a>
   </body>
 </html>
