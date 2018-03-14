@@ -14,4 +14,5 @@ public interface FinanceService {
     PageInfo<Finance> queryAll(int pageNum,int pageSize);
     public int addFinance(Finance finance);
     public List<Type> queryAllType();
+    public int updateFinance(Finance finance);
 }

@@ -17,6 +17,18 @@ import java.util.List;
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class FinanceServiceImplTest {
     @Test
+    public void updateFinance() throws Exception {
+        Finance finance = new Finance();
+        finance.setTypeid(3);
+        finance.setRemark("今天天气为0");
+        finance.setMoney(111);
+        finance.setBalance(323);
+        finance.setId(24);
+        int n = financeService.updateFinance(finance);
+        System.out.println(n);
+    }
+
+    @Test
     public void queryAllType() throws Exception {
         List<Type> list = financeService.queryAllType();
         for (Type type : list) {

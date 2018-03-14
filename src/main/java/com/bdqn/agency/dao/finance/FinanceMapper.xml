@@ -28,6 +28,6 @@
       select * from type
     </select>
     <update id="updateFinance" parameterType="Finance">
-        update finance set
+        update finance set typeid=#{typeid},money=#{money},remark=#{remark},createDate=now() where id=#{id}
     </update>
 </mapper>

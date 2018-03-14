@@ -37,4 +37,9 @@ public class FinanceServiceImpl implements FinanceService {
 
         return financeMapper.queryAllType();
     }
+
+    @Override
+    public int updateFinance(Finance finance) {
+        return financeMapper.updateFinance(finance);
+    }
 }
