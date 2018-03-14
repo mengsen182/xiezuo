@@ -21,7 +21,6 @@ import javax.annotation.Resource;
 public class FinanceController {
     @Resource
     private FinanceService financeService;
-
     //跳转finance list页面
     @RequestMapping("toFinance")
     public String toFinance() {
@@ -34,7 +33,7 @@ public class FinanceController {
         PageUtil<Finance> pageUtil = new PageUtil<>(pageInfo);
         return JSON.toJSONString(pageUtil);
     }
-
+    //添加一条信息,时间为当前时间
     @ResponseBody
     @RequestMapping(value = "addFinance", method = RequestMethod.POST, produces = {"application/json;charset=utf-8"})
     public String addFinance(Finance finance) {
@@ -44,10 +43,30 @@ public class FinanceController {
         }
         return JSON.toJSONString(Message.error());
     }
-
+    //查询所有类型
     @ResponseBody
     @RequestMapping(value = "queryAllType", method = RequestMethod.GET, produces = {"application/json;charset=utf-8"})
     public String queryAllType() {
         return JSON.toJSONString(financeService.queryAllType());
+    }
+    //修改,时间为当前时间,其他都修改
+    @ResponseBody
+    @RequestMapping(value = "updateFinance", method = RequestMethod.POST, produces = {"application/json;charset=utf-8"})
+    public String updateFinance(Finance finance) {
+        int n = financeService.updateFinance(finance);
+        if (n > 0) {
+            return JSON.toJSONString(Message.success());
+        }
+        return JSON.toJSONString(Message.error());
+    }
+    //通过Id查询一条信息
+    @ResponseBody
+    @RequestMapping(value = "queryFinanceById", method = RequestMethod.GET, produces = {"application/json;charset=utf-8"})
+    public String queryFinanceById(int id) {
+        Finance finance = financeService.queryFinanceById(id);
+        if (finance != null) {
+            return JSON.toJSONString(Message.success());
+        }
+        return JSON.toJSONString(Message.error());
     }
 }

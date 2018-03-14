@@ -67,7 +67,12 @@
 
         }
         function updateFinance(id) {
-            alert("修改" + id);
+            /*alert("修改" + id);*/
+            $.get("${pageContext.request.contextPath}/finance/queryFinanceById",{"id":id},function (data) {
+                $("#updateFinanceTypeidCombobox").combobox("setValue", data.typeName);
+            })
+
+
         }
         function deleteFinance(id) {
             alert("删除" + id);
@@ -98,6 +103,29 @@
         </form>
         <div>
             <button id="saveAddFinanceButton" class="easyui-linkbutton" iconCls="icon-save">保存</button>
+        </div>
+    </div>
+<!--修改弹窗-->
+    <div class="easyui-window" id="updateFinanceWindow" closed="true"  title="修改" style="top: 10%;left: 20%;width: 400px;height: 350px;padding: 40px 80px;">
+
+        <form id="updateFinanceForm">
+
+            <div>
+                财务类型:<input id="updateFinanceTypeidCombobox" class="easyui-combobox" name="typeid">
+            </div>
+            <div>
+                财务资金:<input id="updateFinanceMoney" class="easyui-textbox" name="money"/>
+            </div>
+            <div>
+                账户余额:<input id="updateFinanceBalance" class="easyui-textbox" name="balance"/>
+            </div>
+            <div>
+                备注信息:<input id="updateFinanceRemark" class="easyui-textbox" name="remark"/>
+            </div>
+
+        </form>
+        <div>
+            <button id="saveUpdateFinanceButton" class="easyui-linkbutton" iconCls="icon-save">保存</button>
         </div>
     </div>
 </body>

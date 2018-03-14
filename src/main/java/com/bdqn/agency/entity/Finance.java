@@ -23,7 +23,7 @@ public class Finance {
     private int money;
     private double balance;
     private String remark;
-    @JSONField(format = "yyyy-MM-dd HH-mm-ss")
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createDate;
     private Type type;
     private int typeid;

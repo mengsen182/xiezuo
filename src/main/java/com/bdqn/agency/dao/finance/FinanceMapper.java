@@ -17,6 +17,8 @@ public interface FinanceMapper {
 
     //查询类型
     public List<Type> queryAllType();
-
+    //修改,时间为当前时间,其他都修改
     public int updateFinance(Finance finance);
+    //通过id查看Finance
+    public Finance queryFinanceById(int id);
 }

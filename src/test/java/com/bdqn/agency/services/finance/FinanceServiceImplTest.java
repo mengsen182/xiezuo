@@ -17,6 +17,12 @@ import java.util.List;
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class FinanceServiceImplTest {
     @Test
+    public void queryFinanceById() throws Exception {
+        Finance finance = financeService.queryFinanceById(21);
+        System.out.println(finance);
+    }
+
+    @Test
     public void updateFinance() throws Exception {
         Finance finance = new Finance();
         finance.setTypeid(3);

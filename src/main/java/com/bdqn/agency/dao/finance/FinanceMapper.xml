@@ -24,10 +24,16 @@
     <insert id="addFinance" parameterType="Finance">
   INSERT INTO finance VALUES(NULL,#{money},#{balance},#{remark},NOW(),#{typeid})
     </insert>
+    <!--查询类型-->
     <select id="queryAllType" resultMap="typeMap">
       select * from type
     </select>
+    <!--修改,时间为当前时间,其他都修改-->
     <update id="updateFinance" parameterType="Finance">
         update finance set typeid=#{typeid},money=#{money},remark=#{remark},createDate=now() where id=#{id}
     </update>
+    <!--通过id查看Finance-->
+    <select id="queryFinanceById" resultMap="financeMap">
+        select * from finance f,type t where f.typeid=t.typeid and f.id=#{id}
+    </select>
 </mapper>

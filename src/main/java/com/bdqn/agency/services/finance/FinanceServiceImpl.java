@@ -37,9 +37,14 @@ public class FinanceServiceImpl implements FinanceService {
 
         return financeMapper.queryAllType();
     }
-
+    //修改,时间为当前时间,其他都修改
     @Override
     public int updateFinance(Finance finance) {
         return financeMapper.updateFinance(finance);
+    }
+    //通过id查看Finance
+    @Override
+    public Finance queryFinanceById(int id) {
+        return financeMapper.queryFinanceById(id);
     }
 }
