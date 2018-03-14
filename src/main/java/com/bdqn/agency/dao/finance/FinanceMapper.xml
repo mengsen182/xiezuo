@@ -24,5 +24,7 @@
     <insert id="addFinance" parameterType="Finance">
   INSERT INTO finance VALUES(NULL,#{money},#{balance},#{remark},NOW(),#{typeid})
     </insert>
-
+    <select id="queryAllType" resultMap="typeMap">
+      select * from type
+    </select>
 </mapper>

@@ -18,7 +18,8 @@
                 pagination:true,
                 toolbar:[{
                     text:'添加',iconCls:'icon-add',handler:function () {
-                        alert("添加")
+
+                            addFinanceWindow();
                     }},{
                     text:'删除',iconCls:'icon-remove',handler:function () {
                         alert("删除");
@@ -40,9 +41,30 @@
                 ]]
 
             })
+            $("#saveAddFinanceButton").click(function () {
+                var finance = $("#addFinanceForm").serialize();
+                alert(finance);
+                $.post("${pageContext.request.contextPath}/finance/addFinance",finance,function (data) {
+                    alert(data.msg);
+                    $("#addFinanceForm").form("clear");
+                    $("#addFinanceWindow").window("close");
+                    $("#financeHg").datagrid("reload");
+                })
+            })
         })
         function addFinanceWindow() {
-            $("#addFinanceWindow").window("open");
+            $.get("${pageContext.request.contextPath}/finance/queryAllType",function (finance) {
+                $("#addFinanceTypeidCombobox").combobox({
+                    valueField:'typeid',
+                    textField:'typeName',
+                    data:finance,
+                    editable:false
+
+                })
+
+                $("#addFinanceWindow").window("open");
+           })
+
         }
         function updateFinance(id) {
             alert("修改" + id);
@@ -50,27 +72,33 @@
         function deleteFinance(id) {
             alert("删除" + id);
         }
+
     </script>
 </head>
 <body>
     <table id="financeHg"></table>
-    <div class="easyui-windows" id="addFinanceWindow" style="top: 10%;left: 20%;width: 400px;height: 350px;padding: 40px 80px;">
-        <div>
-            财务类型:<input id="addFinanceTypeidCombobox" class="easyui-combobox">
-        </div>
-        <div>
-            财务资金:<input id="addFinanceMoney" class="easyui-textbox"/>
-        </div>
-        <div>
-            账户余额:<input id="addFinanceBalance" class="easyui-textbox"/>
-        </div>
-        <div>
-            备注信息:<input id="addFinanceRemark" class="easyui-textbox"/>
-        </div>
-            <div>
-                <button id="saveAddFinanceButton" class="easyui-linkbutton" iconCls="icon-save">保存</button>
-            </div>
-    </div>
+    <!--添加windows-->
+    <div class="easyui-window" id="addFinanceWindow" closed="true"  title="添加" style="top: 10%;left: 20%;width: 400px;height: 350px;padding: 40px 80px;">
 
+        <form id="addFinanceForm">
+
+        <div>
+            财务类型:<input id="addFinanceTypeidCombobox" class="easyui-combobox" name="typeid">
+        </div>
+        <div>
+            财务资金:<input id="addFinanceMoney" class="easyui-textbox" name="money"/>
+        </div>
+        <div>
+            账户余额:<input id="addFinanceBalance" class="easyui-textbox" name="balance"/>
+        </div>
+        <div>
+            备注信息:<input id="addFinanceRemark" class="easyui-textbox" name="remark"/>
+        </div>
+
+        </form>
+        <div>
+            <button id="saveAddFinanceButton" class="easyui-linkbutton" iconCls="icon-save">保存</button>
+        </div>
+    </div>
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.bdqn.agency.services.finance;
 
 import com.bdqn.agency.dao.finance.FinanceMapper;
 import com.bdqn.agency.entity.Finance;
+import com.bdqn.agency.entity.Type;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
@@ -29,5 +30,11 @@ public class FinanceServiceImpl implements FinanceService {
     @Override
     public int addFinance(Finance finance) {
         return financeMapper.addFinance(finance);
+    }
+
+    @Override
+    public List<Type> queryAllType() {
+
+        return financeMapper.queryAllType();
     }
 }

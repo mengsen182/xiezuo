@@ -1,12 +1,14 @@
 package com.bdqn.agency.services.finance;
 
 import com.bdqn.agency.entity.Finance;
+import com.bdqn.agency.entity.Type;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by Administrator on 2018/3/13/013.
@@ -14,6 +16,14 @@ import javax.annotation.Resource;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class FinanceServiceImplTest {
+    @Test
+    public void queryAllType() throws Exception {
+        List<Type> list = financeService.queryAllType();
+        for (Type type : list) {
+            System.out.println(type);
+        }
+    }
+
     @Resource
     private FinanceService financeService;
     @Test

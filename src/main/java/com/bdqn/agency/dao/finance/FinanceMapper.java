@@ -1,6 +1,7 @@
 package com.bdqn.agency.dao.finance;
 
 import com.bdqn.agency.entity.Finance;
+import com.bdqn.agency.entity.Type;
 
 import java.util.List;
 
@@ -13,4 +14,7 @@ public interface FinanceMapper {
 
     //添加
     public int addFinance(Finance finance);
+
+    //查询类型
+    public List<Type> queryAllType();
 }

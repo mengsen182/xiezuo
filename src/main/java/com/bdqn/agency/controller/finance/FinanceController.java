@@ -3,6 +3,7 @@ package com.bdqn.agency.controller.finance;
 import com.alibaba.fastjson.JSON;
 import com.bdqn.agency.entity.Finance;
 import com.bdqn.agency.services.finance.FinanceService;
+import com.bdqn.agency.util.Message;
 import com.bdqn.agency.util.PageUtil;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
@@ -37,6 +38,16 @@ public class FinanceController {
     @ResponseBody
     @RequestMapping(value = "addFinance", method = RequestMethod.POST, produces = {"application/json;charset=utf-8"})
     public String addFinance(Finance finance) {
-        return JSON.toJSONString(financeService.addFinance(finance));
+        int n = financeService.addFinance(finance);
+        if (n > 0) {
+            return JSON.toJSONString(Message.success());
+        }
+        return JSON.toJSONString(Message.error());
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "queryAllType", method = RequestMethod.GET, produces = {"application/json;charset=utf-8"})
+    public String queryAllType() {
+        return JSON.toJSONString(financeService.queryAllType());
     }
 }
