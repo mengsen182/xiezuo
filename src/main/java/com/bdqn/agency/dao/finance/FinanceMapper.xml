@@ -27,4 +27,7 @@
     <select id="queryAllType" resultMap="typeMap">
       select * from type
     </select>
+    <update id="updateFinance" parameterType="Finance">
+        update finance set
+    </update>
 </mapper>

@@ -17,4 +17,6 @@ public interface FinanceMapper {
 
     //查询类型
     public List<Type> queryAllType();
+
+    public int updateFinance(Finance finance);
 }
