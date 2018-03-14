@@ -51,6 +51,15 @@
                     $("#financeHg").datagrid("reload");
                 })
             })
+            $("#saveUpdateFinanceButton").click(function () {
+                var finance = $("#updateFinanceForm").serialize();
+                $.post("${pageContext.request.contextPath}/finance/updateFinance",finance,function (data) {
+                    alert(data.msg);
+                    $("#updateFinanceForm").form("clear");
+                    $("#updateFinanceWindow").window("close");
+                    $("#financeHg").datagrid("reload");
+                })
+            })
         })
         function addFinanceWindow() {
             $.get("${pageContext.request.contextPath}/finance/queryAllType",function (finance) {
@@ -67,12 +76,28 @@
 
         }
         function updateFinance(id) {
-            /*alert("修改" + id);*/
-            $.get("${pageContext.request.contextPath}/finance/queryFinanceById",{"id":id},function (data) {
-                $("#updateFinanceTypeidCombobox").combobox("setValue", data.typeName);
+           /* alert("修改" + id);*/
+            $.get("${pageContext.request.contextPath}/finance/queryFinanceById",{"id":id},
+                function (data) {
+
+                $("#updateFinanceId").val(data.id);
+/*
+                    $("#updateFinanceTypeidCombobox").combobox("setValue", data.type.typeName);
+*/
+                    ("#updateFinanceTypeidCombobox").combobox({
+                        url:"${pageContext.request.contextPath}/finance/queryAllType",
+                        valueField:"typeid",
+                        textField:"typeName",
+                        method:"get",
+                        data:data
+                    })
+                $("#updateFinanceMoney").textbox('setValue', data.money);
+                $("#updateFinanceBalance").textbox("setValue", data.balance);
+                $("#updateFinanceRemark").textbox("setValue", data.remark);
+
             })
 
-
+            $("#updateFinanceWindow").window("open");
         }
         function deleteFinance(id) {
             alert("删除" + id);
@@ -111,7 +136,10 @@
         <form id="updateFinanceForm">
 
             <div>
-                财务类型:<input id="updateFinanceTypeidCombobox" class="easyui-combobox" name="typeid">
+                财务类型:<input id="updateFinanceTypeidCombobox" class="easyui-combobox" name="typeid"
+                           >
+
+                <input type="hidden" name="id" id="updateFinanceId"/>
             </div>
             <div>
                 财务资金:<input id="updateFinanceMoney" class="easyui-textbox" name="money"/>

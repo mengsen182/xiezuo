@@ -62,11 +62,8 @@ public class FinanceController {
     //通过Id查询一条信息
     @ResponseBody
     @RequestMapping(value = "queryFinanceById", method = RequestMethod.GET, produces = {"application/json;charset=utf-8"})
-    public String queryFinanceById(int id) {
+    public String queryFinanceById(Integer id) {
         Finance finance = financeService.queryFinanceById(id);
-        if (finance != null) {
-            return JSON.toJSONString(Message.success());
-        }
-        return JSON.toJSONString(Message.error());
+        return JSON.toJSONString(finance);
     }
 }
