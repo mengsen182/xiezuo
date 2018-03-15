@@ -24,4 +24,6 @@ public interface FinanceService {
     public int deleteFinanceById(int id);
     //删除多条信息
     public Integer deleteFinanceByIds(List<Integer> ids);
+    //查询两个时间段之间的类型
+    public String queryCreatedateAndToCreatedate(String createDateNo1, String createDateNo2);
 }

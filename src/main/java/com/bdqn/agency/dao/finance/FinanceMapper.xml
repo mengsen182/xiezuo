@@ -47,4 +47,7 @@
             #{ids}
         </foreach>
     </delete>
+    <select id="queryCreatedateAndToCreatedate" resultMap="financeMap">
+           SELECT * FROM finance f,TYPE t WHERE f.typeid=t.typeid AND createdate BETWEEN concat("'",#{createDateNo1},"'") AND concat("'",#{createDateNo2,"'"})
+    </select>
 </mapper>

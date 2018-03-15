@@ -126,9 +126,19 @@
 
         }
 
+
     </script>
 </head>
 <body>
+    <div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        操作类型:<input id="selectTypeCombobox" class="easyui-combobox" name="typeName"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        操作时间:<input class="easyui-datetimebox" name="careteDate" data-options="required:true,showSeconds:false" value="3/4/2010 2:3" style="width:150px">
+        至<input class="easyui-datetimebox" name="careteDate" data-options="required:true,showSeconds:false" value="3/4/2010 2:3" style="width:150px">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="easyui-linkbutton" id="selectTimeButton">查询</button>
+    </div>
     <table id="financeHg"></table>
     <!--添加windows-->
     <div class="easyui-window" id="addFinanceWindow" closed="true"  title="添加" style="top: 10%;left: 20%;width: 400px;height: 350px;padding: 40px 80px;">
