@@ -8,6 +8,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -56,5 +57,10 @@ public class FinanceServiceImpl implements FinanceService {
     @Override
     public Integer deleteFinanceByIds(List<Integer> ids) {
         return financeMapper.deleteFinanceByIds(ids);
+    }
+
+    @Override
+    public List<Finance> queryCreatedateAndToCreatedate(String  createDateNo1, String  createDateNo2) {
+        return financeMapper.queryCreatedateAndToCreatedate(createDateNo1,createDateNo2);
     }
 }

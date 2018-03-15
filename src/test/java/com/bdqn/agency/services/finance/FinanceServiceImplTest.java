@@ -8,7 +8,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,6 +20,20 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class FinanceServiceImplTest {
+    @Test
+    public void queryCreatedateAndToCreatedate() throws Exception {
+
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+         String N3 = dateFormat.format(new Date(2018,03,13,00,00,00));
+        String N4 = dateFormat.format(new Date(2018,03,14,00,00,00));
+        List<Finance> list = financeService.queryCreatedateAndToCreatedate(N3, N4);
+        for (Finance finance : list) {
+            System.out.println(finance);
+        }
+    }
+
     @Test
     public void deleteFinanceByIds() throws Exception {
         List<Integer> list = new ArrayList<>();
