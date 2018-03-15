@@ -48,6 +48,6 @@
         </foreach>
     </delete>
     <select id="queryCreatedateAndToCreatedate" resultMap="financeMap">
-             select * from finance f,type t where f.typeid=t.typeid and createdate between    CONCAT("'",#{createDateNo1},"'") and CONCAT("'",#{createDateNo2},"'")
+             select * from finance f,type t where f.typeid=t.typeid and createdate &gt;= #{createDateNo1} and createdate &lt;= #{createDateNo2}
     </select>
 </mapper>

@@ -2,6 +2,7 @@ package com.bdqn.agency.dao.finance;
 
 import com.bdqn.agency.entity.Finance;
 import com.bdqn.agency.entity.Type;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -29,5 +30,5 @@ public interface FinanceMapper {
     public Integer deleteFinanceByIds(List<Integer> ids);
 
     //查询两个时间段之间的类型
-    public List<Finance> queryCreatedateAndToCreatedate(String  createDateNo1, String createDateNo2);
+    public List<Finance> queryCreatedateAndToCreatedate(@Param("createDateNo1") String  createDateNo1,@Param("createDateNo2") String createDateNo2);
 }
