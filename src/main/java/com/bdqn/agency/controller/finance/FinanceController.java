@@ -99,7 +99,17 @@ public class FinanceController {
 
     @ResponseBody
     @RequestMapping(value = "queryCreatedateAndToCreatedate", method = RequestMethod.GET, produces = {"application/json;charset=utf-8"})
-    public String queryCreatedateAndToCreatedate(String careteDateNo1, String careteDateNo2 ,Integer typeid) {
-        return JSON.toJSONString(financeService.queryCreatedateAndToCreatedate(careteDateNo1, careteDateNo2,typeid));
+    public String queryCreatedateAndToCreatedate(String createDateNo1, String createDateNo2 ,Integer typeid) {
+        System.out.println(createDateNo1);
+        System.out.println(createDateNo2);
+        System.out.println(typeid);
+        List<Finance> list = financeService.queryCreatedateAndToCreatedate(createDateNo1, createDateNo2, typeid);
+        for (Finance finance : list) {
+            System.out.println(finance);
+        }
+        PageInfo<Finance> pageInfo = new PageInfo<>(list);
+        PageUtil<Finance> pageUtil = new PageUtil<>(pageInfo);
+
+        return JSON.toJSONString(pageUtil);
     }
 }

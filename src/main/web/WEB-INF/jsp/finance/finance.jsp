@@ -85,13 +85,15 @@
 
 
             querySelectType();
-            $("#")
-            $("#selectTimeButton").click(function (id) {
+
+            $("#selectTimeButton").click(function () {
                 var createDateNo1 = $("#selectCreateDateNo1").datebox('getValue');
                 var createDateNo2 = $("#selectCreateDateNo2").datebox('getValue');
                 var typeid = $("#selectTypeCombobox").combobox('getValue');
-
-                $("${pageContext.request.contextPath}/finance/queryCreatedateAndToCreatedate", {
+                alert(typeid);
+                alert(createDateNo1);
+                alert(createDateNo2);
+                $.get("${pageContext.request.contextPath}/finance/queryCreatedateAndToCreatedate", {
                     "createDateNo1": createDateNo1,
                     "createDateNo2": createDateNo2,
                     "typeid":typeid
@@ -101,7 +103,7 @@
                 })
 
             })
-        })
+        });
         function addFinanceWindow() {
             $.get("${pageContext.request.contextPath}/finance/queryAllType", function (finance) {
                 $("#addFinanceTypeidCombobox").combobox({
