@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,6 +17,23 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class FinanceServiceImplTest {
+    @Test
+    public void deleteFinanceByIds() throws Exception {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        int n = financeService.deleteFinanceByIds(list);
+        System.out.println(n);
+    }
+
+    @Test
+    public void deleteFinanceById() throws Exception {
+        int n = financeService.deleteFinanceById(21);
+        if (n > 0) {
+            System.out.println(n);
+        }
+    }
+
     @Test
     public void queryFinanceById() throws Exception {
         Finance finance = financeService.queryFinanceById(21);

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2018/3/13/013.
@@ -65,5 +67,33 @@ public class FinanceController {
     public String queryFinanceById(Integer id) {
         Finance finance = financeService.queryFinanceById(id);
         return JSON.toJSONString(finance);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "deleteFinanceById", method = RequestMethod.POST, produces = {"application/json;charset=utf-8"})
+    public String deleteFinanceById(int id) {
+        int n = financeService.deleteFinanceById(id);
+        if (n > 0) {
+            return JSON.toJSONString(Message.success());
+        }
+        return JSON.toJSONString(Message.error());
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "deleteFinanceByIds", method = RequestMethod.POST, produces = {"application/json;charset=utf-8"})
+    public String deleteFinanceByIds(String ids) {
+        String[] ids1 = ids.split(",");
+        List<Integer> list = new ArrayList<>();
+        if (ids1 != null) {
+            for (String s : ids1) {
+                list.add(Integer.parseInt(s));
+
+            }
+        }
+        int n = financeService.deleteFinanceByIds(list);
+        if (n > 0) {
+            return JSON.toJSONString(Message.success());
+        }
+        return JSON.toJSONString(Message.error());
     }
 }

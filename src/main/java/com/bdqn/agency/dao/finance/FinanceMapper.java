@@ -21,4 +21,10 @@ public interface FinanceMapper {
     public int updateFinance(Finance finance);
     //通过id查看Finance
     public Finance queryFinanceById(int id);
+
+    //删除一条信息
+    public int deleteFinanceById(int id);
+
+    //删除多条信息
+    public Integer deleteFinanceByIds(List<Integer> ids);
 }

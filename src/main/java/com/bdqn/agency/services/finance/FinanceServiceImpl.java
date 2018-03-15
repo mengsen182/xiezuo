@@ -47,4 +47,14 @@ public class FinanceServiceImpl implements FinanceService {
     public Finance queryFinanceById(int id) {
         return financeMapper.queryFinanceById(id);
     }
+
+    @Override
+    public int deleteFinanceById(int id) {
+        return financeMapper.deleteFinanceById(id);
+    }
+
+    @Override
+    public Integer deleteFinanceByIds(List<Integer> ids) {
+        return financeMapper.deleteFinanceByIds(ids);
+    }
 }

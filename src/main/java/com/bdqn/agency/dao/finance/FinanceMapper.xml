@@ -36,4 +36,15 @@
     <select id="queryFinanceById" resultMap="financeMap">
         select * from finance f,type t where f.typeid=t.typeid and f.id=#{id}
     </select>
+<!--删除一条信息-->
+    <delete id="deleteFinanceById" parameterType="integer">
+        delete  FROM  finance where id=#{id}
+    </delete>
+    <!--删除多条信息-->
+    <delete id="deleteFinanceByIds" >
+        delete from finance where id in 
+        <foreach collection="list" item="ids" open="(" separator="," close=")">
+            #{ids}
+        </foreach>
+    </delete>
 </mapper>

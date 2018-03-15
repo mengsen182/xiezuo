@@ -21,8 +21,23 @@
 
                             addFinanceWindow();
                     }},{
-                    text:'删除',iconCls:'icon-remove',handler:function () {
-                        alert("删除");
+                    text:'批量删除',iconCls:'icon-remove',handler:function () {
+                        /*alert("删除");*/
+                        var checkFinance = $("#financeHg").datagrid("getChecked");
+                        var ids = "";
+                        if(checkFinance==null||checkFinance.length<=0) {
+                            alert("请选择需要删除的选项");
+                            return ;
+                        }
+                        if(confirm("确定要删除这些记录吗?")) {
+                            $.each(checkFinance,function (index,item) {
+                                ids = ids + item.id + ",";
+                            })
+                            $.post("${pageContext.request.contextPath}/finance/deleteFinanceByIds",{"ids":ids},function (data) {
+                                alert(data.msg);
+                                $("#financeHg").datagrid("reload");
+                            })
+                        }
                     }}],
                 columns:[[
                     {field:'ck',checkbox:true},
@@ -100,7 +115,15 @@
             $("#updateFinanceWindow").window("open");
         }
         function deleteFinance(id) {
-            alert("删除" + id);
+            /*alert("删除" + id);*/
+            if(confirm("确定删除该记录吗?")) {
+                $.post("${pageContext.request.contextPath}/finance/deleteFinanceById",{"id":id},function (data) {
+                    alert(data.msg);
+                    $("#financeHg").datagrid("reload");
+                })
+
+            }
+
         }
 
     </script>
