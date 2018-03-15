@@ -47,7 +47,11 @@
             #{ids}
         </foreach>
     </delete>
+    <!--查询两个时间段内的信息-->
     <select id="queryCreatedateAndToCreatedate" resultMap="financeMap">
-             select * from finance f,type t where f.typeid=t.typeid and createdate &gt;= #{createDateNo1} and createdate &lt;= #{createDateNo2}
+        select * from finance f,type t where f.typeid=t.typeid and createdate &gt;= #{createDateNo1} and createdate &lt;= #{createDateNo2}
+
+            and t.typeid=#{typeid}
+
     </select>
 </mapper>

@@ -30,5 +30,5 @@ public interface FinanceMapper {
     public Integer deleteFinanceByIds(List<Integer> ids);
 
     //查询两个时间段之间的类型
-    public List<Finance> queryCreatedateAndToCreatedate(@Param("createDateNo1") String  createDateNo1,@Param("createDateNo2") String createDateNo2);
+    public List<Finance> queryCreatedateAndToCreatedate(@Param("createDateNo1") String  createDateNo1,@Param("createDateNo2") String createDateNo2,@Param("typeid")Integer typeid);
 }

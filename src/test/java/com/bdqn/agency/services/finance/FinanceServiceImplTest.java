@@ -22,7 +22,7 @@ public class FinanceServiceImplTest {
 
 
 
-        List<Finance> list = financeService.queryCreatedateAndToCreatedate("2018-03-12", "2018-03-15");
+        List<Finance> list = financeService.queryCreatedateAndToCreatedate("2018-03-12", "2018-03-15",1);
         for (Finance finance : list) {
             System.out.println(finance);
         }

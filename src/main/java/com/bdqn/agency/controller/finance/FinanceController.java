@@ -96,4 +96,10 @@ public class FinanceController {
         }
         return JSON.toJSONString(Message.error());
     }
+
+    @ResponseBody
+    @RequestMapping(value = "queryCreatedateAndToCreatedate", method = RequestMethod.GET, produces = {"application/json;charset=utf-8"})
+    public String queryCreatedateAndToCreatedate(String careteDateNo1, String careteDateNo2 ,Integer typeid) {
+        return JSON.toJSONString(financeService.queryCreatedateAndToCreatedate(careteDateNo1, careteDateNo2,typeid));
+    }
 }

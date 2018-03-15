@@ -60,7 +60,7 @@ public class FinanceServiceImpl implements FinanceService {
     }
 
     @Override
-    public List<Finance> queryCreatedateAndToCreatedate(String  createDateNo1, String  createDateNo2) {
-        return financeMapper.queryCreatedateAndToCreatedate(createDateNo1,createDateNo2);
+    public List<Finance> queryCreatedateAndToCreatedate(String  createDateNo1, String  createDateNo2,Integer typeid) {
+        return financeMapper.queryCreatedateAndToCreatedate(createDateNo1,createDateNo2,typeid);
     }
 }
